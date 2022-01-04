@@ -59,19 +59,19 @@
       <menus>
         <Menu mnemonicParsing="false" text="Fichier">
           <items>
-            <MenuItem fx:id="MenuFichierOuvrir" mnemonicParsing="false" text="Ouvrir" />
-            <MenuItem fx:id="MenuFichierQuitter" mnemonicParsing="false" text="Quitter" />
+            <MenuItem fx:id="MenuFichierOuvrir" mnemonicParsing="false" onAction="#fichierouvrir" text="Ouvrir" />
+            <MenuItem fx:id="MenuFichierQuitter" mnemonicParsing="false" onAction="#fichierquitter" text="Quitter" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Edition">
           <items>
-            <MenuItem fx:id="MenuEditionSauvegarder" mnemonicParsing="false" text="Sauvegarder" />
-            <MenuItem fx:id="MenuEditionSauvegarderSous" mnemonicParsing="false" text="Sauvegarder sous..." />
+            <MenuItem fx:id="MenuEditionSauvegarder" mnemonicParsing="false" onAction="#editionsauvegarder" text="Sauvegarder" />
+            <MenuItem fx:id="MenuEditionSauvegarderSous" mnemonicParsing="false" onAction="#editionsauvegardersous" text="Sauvegarder sous..." />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="About">
           <items>
-            <MenuItem fx:id="MenuAboutInfos" mnemonicParsing="false" text="Infos" />
+            <MenuItem fx:id="MenuAboutInfos" mnemonicParsing="false" onAction="#aboutinfos" text="Infos" />
           </items>
         </Menu>
       </menus>
@@ -124,7 +124,7 @@
                         <TextField fx:id="ColonneField" layoutX="276.0" layoutY="230.0" text="INT -&gt; 0,5" />
                         <Text layoutX="21.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rangée : " wrappingWidth="71.13671875" />
                         <TextField fx:id="RangeeField" layoutX="276.0" layoutY="275.0" text="INT -&gt; 0,7" />
-                        <Button fx:id="btnValider" layoutX="350.0" layoutY="324.0" mnemonicParsing="false" onAction="#Valider" prefHeight="25.0" prefWidth="75.0" text="Valider" />
+                        <Button fx:id="btnValider" layoutX="350.0" layoutY="324.0" mnemonicParsing="false" onAction="#valider" prefHeight="25.0" prefWidth="75.0" text="Valider" />
                         <ImageView accessibleText="Apreçu de l'image" fitHeight="115.0" fitWidth="255.0" layoutX="21.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
                            <effect>
                               <Shadow />
