@@ -60,7 +60,7 @@
         <Menu mnemonicParsing="false" text="Fichier">
           <items>
             <MenuItem fx:id="MenuFichierOuvrir" mnemonicParsing="false" onAction="#fichierouvrir" text="Ouvrir" />
-            <MenuItem fx:id="MenuFichierQuitter" mnemonicParsing="false" onAction="#fichierquitter" text="Quitter" />
+            <MenuItem fx:id="closeButton" mnemonicParsing="false" onAction="#closeButtonAction" text="Quitter" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Edition">

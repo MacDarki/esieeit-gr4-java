@@ -6,62 +6,37 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+
+import java.io.IOException;
 
 public class HelloController {
 
-    @FXML
-    private TextField AuteurField;
+    @FXML private TextField AuteurField;
+    @FXML private TextField ColonneField;
+    @FXML private MenuItem MenuAboutInfos;
+    @FXML private MenuItem MenuEditionSauvegarder;
+    @FXML private MenuItem MenuEditionSauvegarderSous;
+    @FXML private MenuItem MenuFichierOuvrir;
+    @FXML private MenuItem MenuFichierQuitter;
+    @FXML private javafx.scene.control.MenuItem closeButton;
+    @FXML private TextField ParutionField;
+    @FXML private TextField PresentationField;
+    @FXML private TextField RangeeField;
+    @FXML private TextField TitreField;
+    @FXML private Button btnEdit;
+    @FXML private Button btnValider;
+
 
     @FXML
-    private TextField ColonneField;
-
-    @FXML
-    private MenuItem MenuAboutInfos;
-
-    @FXML
-    private MenuItem MenuEditionSauvegarder;
-
-    @FXML
-    private MenuItem MenuEditionSauvegarderSous;
-
-    @FXML
-    private MenuItem MenuFichierOuvrir;
-
-    @FXML
-    private MenuItem MenuFichierQuitter;
-
-    @FXML
-    private TextField ParutionField;
-
-    @FXML
-    private TextField PresentationField;
-
-    @FXML
-    private TextField RangeeField;
-
-    @FXML
-    private TextField TitreField;
-
-    @FXML
-    private Button btnEdit;
-
-    @FXML
-    private Button btnValider;
-
-    @FXML
-    public void valider(){
-        TitreField.setText("ça fonctionne");
-    }
-
-    ///////////////////// Menu /////////////////////
-    @FXML
-    void fichierouvrir(ActionEvent event) {
+    void aboutinfos(ActionEvent event) throws IOException {
 
     }
 
     @FXML
-    void fichierquitter(ActionEvent event) {
-
+    void closeButtonAction() {
+        System.exit(0);
     }
 
     @FXML
@@ -75,7 +50,12 @@ public class HelloController {
     }
 
     @FXML
-    void aboutinfos(ActionEvent event) {
+    void fichierouvrir(ActionEvent event) throws IOException {
+        Process p = new ProcessBuilder("Explorer.exe", "/select,C:\\directory\\selectedFile").start();
+    }
+
+    @FXML
+    void valider(ActionEvent event) {
 
     }
 
