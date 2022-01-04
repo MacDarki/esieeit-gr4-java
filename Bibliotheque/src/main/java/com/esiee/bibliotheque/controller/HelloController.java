@@ -54,9 +54,5 @@ public class HelloController {
     @FXML
     private Button btnValider;
 
-    @FXML
-    public void Valider(){
-        TitreField.setText("ça fonctionne");
-    }
 
 }
