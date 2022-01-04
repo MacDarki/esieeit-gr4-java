@@ -1,11 +1,15 @@
 package com.esiee.bibliotheque;
 
+import com.esiee.bibliotheque.controller.Tableau;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class HelloApplication extends Application {
     @Override
