@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esiee.bibliotheque.controller.HelloController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Fichier">
+          <items>
+            <MenuItem fx:id="MenuFichierOuvrir" mnemonicParsing="false" text="Ouvrir" />
+            <MenuItem fx:id="MenuFichierQuitter" mnemonicParsing="false" text="Quitter" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edition">
+          <items>
+            <MenuItem fx:id="MenuEditionSauvegarder" mnemonicParsing="false" text="Sauvegarder" />
+            <MenuItem fx:id="MenuEditionSauvegarderSous" mnemonicParsing="false" text="Sauvegarder sous..." />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="About">
+          <items>
+            <MenuItem fx:id="MenuAboutInfos" mnemonicParsing="false" text="Infos" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <SplitPane dividerPositions="0.0" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane prefHeight="551.0" prefWidth="679.0">
+          <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Tableau" textAlignment="CENTER" wrapText="false">
+              <font>
+                <Font size="18.0" fx:id="x1" />
+              </font>
+              <textFill>
+                <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
+              </textFill>
+            </Label>
+                  <TableView prefHeight="551.0" prefWidth="446.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Titre" />
+                      <TableColumn prefWidth="75.0" text="Auteur" />
+                        <TableColumn prefWidth="75.0" text="Présentation" />
+                        <TableColumn prefWidth="75.0" text="Parution" />
+                        <TableColumn prefWidth="75.0" text="Colonne" />
+                        <TableColumn prefWidth="75.0" text="Rangée" />
+                    </columns>
+                  </TableView>
+          </children>
+        </AnchorPane>
+            <ScrollPane prefHeight="551.0" prefWidth="362.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="541.0" prefWidth="439.0">
+                     <children>
+                        <Label alignment="CENTER" minWidth="60.0" prefHeight="27.0" prefWidth="446.0" style="&#10;" text="Informations à remplir" textAlignment="CENTER" wrapText="false">
+                           <font>
+                              <Font size="18.0" fx:id="x11" />
+                           </font>
+                           <textFill>
+                              <Color red="0.624" green="0.624" blue="0.624" fx:id="x21" />
+                           </textFill>
+                        </Label>
+                        <Text layoutX="21.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre : " wrappingWidth="71.13671875" />
+                        <TextField fx:id="TitreField" layoutX="276.0" layoutY="58.0" text="Alpha Numérique" />
+                        <Text layoutX="21.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Auteur : " wrappingWidth="71.13671875" />
+                        <TextField fx:id="AuteurField" layoutX="276.0" layoutY="98.0" text="Text" />
+                        <Text layoutX="21.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Présentation : " wrappingWidth="90.13671875" />
+                        <TextField fx:id="PresentationField" layoutX="276.0" layoutY="141.0" text="url img / Couverture" />
+                        <Text layoutX="21.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parution : " wrappingWidth="71.13671875" />
+                        <TextField fx:id="ParutionField" layoutX="276.0" layoutY="186.0" text="Date" />
+                        <Text layoutX="21.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Colonne : " wrappingWidth="71.13671875" />
+                        <TextField fx:id="ColonneField" layoutX="276.0" layoutY="230.0" text="INT -&gt; 0,5" />
+                        <Text layoutX="21.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rangée : " wrappingWidth="71.13671875" />
+                        <TextField fx:id="RangeeField" layoutX="276.0" layoutY="275.0" text="INT -&gt; 0,7" />
+                        <Button fx:id="btnValider" layoutX="350.0" layoutY="324.0" mnemonicParsing="false" onAction="#Valider" prefHeight="25.0" prefWidth="75.0" text="Valider" />
+                        <ImageView accessibleText="Apreçu de l'image" fitHeight="115.0" fitWidth="255.0" layoutX="21.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
+                           <effect>
+                              <Shadow />
+                           </effect>
+                        </ImageView>
+                        <Button layoutX="36.0" layoutY="476.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="+" />
+                        <Button layoutX="92.0" layoutY="476.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="36.0" text="-" />
+                        <Button fx:id="btnEdit" layoutX="149.0" layoutY="476.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Edit" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+      </items>
+    </SplitPane>
+      <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0">
+         <children>
+            <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="11.0" fx:id="x3" />
+               </font>
+               <textFill>
+                  <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
+               </textFill>
+            </Label>
+            <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+            <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+         </children>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </HBox>
+  </children>
+</VBox>
