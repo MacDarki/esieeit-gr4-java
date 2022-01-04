@@ -6,8 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.IOException;
 import java.net.URL;
@@ -62,42 +60,25 @@ public class HelloController {
 
     ////////////// tableau ///////////////////
     @FXML
-    private TableView<Tableau> table;
+    private TableView<Tableau_old> table;
 
     @FXML
-    private TableColumn<Tableau, String> titre;
+    private TableColumn<Tableau_old, String> titre;
 
     @FXML
-    private TableColumn<Tableau, String> auteur;
+    private TableColumn<Tableau_old, String> auteur;
 
     @FXML
-    private TableColumn<Tableau, String> presentation;
+    private TableColumn<Tableau_old, String> presentation;
 
     @FXML
-    private TableColumn<Tableau, String> parution;
+    private TableColumn<Tableau_old, String> parution;
 
     @FXML
-    private TableColumn<Tableau, Integer> colonne;
+    private TableColumn<Tableau_old, Integer> colonne;
 
     @FXML
-    private TableColumn<Tableau, Integer> rangee;
+    private TableColumn<Tableau_old, Integer> rangee;
 
-    ObservableList<Tableau> list = FXCollections.observableArrayList(
-            new Tableau(1,1,"Le Seigneur des Anneaux", "Tolkien", "oikjzer", "2000"),
-            new Tableau(1,2,"Le Silence des Agneaux", "Lecter", "oikjzer", "2010"),
-            new Tableau(1,3,"Spider-Man Far from home", "Araignée", "oikjzer", "2020"),
-            new Tableau(1,4,"Retour vers le Futur", "Marty", "oikjzer", "1985")
-    );
 
-    public void initialize (URL url, ResourceBundle rb){
-        titre.setCellValueFactory(new PropertyValueFactory<Tableau,String>("titre"));
-        auteur.setCellValueFactory(new PropertyValueFactory<Tableau,String>("auteur"));
-        presentation.setCellValueFactory(new PropertyValueFactory<Tableau,String>("presentation"));
-        parution.setCellValueFactory(new PropertyValueFactory<Tableau,String>("parution"));
-        colonne.setCellValueFactory(new PropertyValueFactory<Tableau,Integer>("colonne"));
-        rangee.setCellValueFactory(new PropertyValueFactory<Tableau,Integer>("rangee"));
-
-        table.setItems(list);
-
-    }
 }
