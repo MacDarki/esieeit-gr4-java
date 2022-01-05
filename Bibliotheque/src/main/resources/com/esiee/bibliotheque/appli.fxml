@@ -57,7 +57,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esiee.bibliotheque.controller.HelloController">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esiee.bibliotheque.controller.Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -92,14 +92,14 @@
                 <Color red="0.624" green="0.624" blue="0.624" fx:id="x2" />
               </textFill>
             </Label>
-                  <TableView layoutX="6.0" prefHeight="551.0" prefWidth="446.0">
+                  <TableView fx:id="TableView" editable="true" layoutX="6.0" prefHeight="551.0" prefWidth="446.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="Titre" />
-                      <TableColumn prefWidth="75.0" text="Auteur" />
-                        <TableColumn prefWidth="75.0" text="Présentation" />
-                        <TableColumn prefWidth="75.0" text="Parution" />
-                        <TableColumn prefWidth="75.0" text="Colonne" />
-                        <TableColumn prefWidth="75.0" text="Rangée" />
+                      <TableColumn fx:id="titre" prefWidth="75.0" text="Titre" />
+                      <TableColumn fx:id="auteur" prefWidth="75.0" text="Auteur" />
+                        <TableColumn fx:id="presentation" prefWidth="75.0" text="Présentation" />
+                        <TableColumn fx:id="parution" prefWidth="75.0" text="Parution" />
+                        <TableColumn fx:id="colonne" prefWidth="75.0" text="Colonne" />
+                        <TableColumn fx:id="rangee" prefWidth="75.0" text="Rangée" />
                     </columns>
                   </TableView>
           </children>

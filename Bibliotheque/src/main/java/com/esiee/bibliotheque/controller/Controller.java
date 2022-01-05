@@ -4,14 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController {
+public class Controller implements Initializable {
 
     @FXML private TextField AuteurField;
     @FXML private TextField ColonneField;
@@ -60,25 +60,44 @@ public class HelloController {
 
     ////////////// tableau ///////////////////
     @FXML
-    private TableView<Tableau_old> table;
+    private TableView<Livre> TableView;
 
     @FXML
-    private TableColumn<Tableau_old, String> titre;
+    private TableColumn<Livre, String> titre;
 
     @FXML
-    private TableColumn<Tableau_old, String> auteur;
+    private TableColumn<Livre, String> auteur;
 
     @FXML
-    private TableColumn<Tableau_old, String> presentation;
+    private TableColumn<Livre, String> presentation;
 
     @FXML
-    private TableColumn<Tableau_old, String> parution;
+    private TableColumn<Livre, String> parution;
 
     @FXML
-    private TableColumn<Tableau_old, Integer> colonne;
+    private TableColumn<Livre, Integer> colonne;
 
     @FXML
-    private TableColumn<Tableau_old, Integer> rangee;
+    private TableColumn<Livre, Integer> rangee;
+
+    ObservableList<Livre> list = FXCollections.observableArrayList(
+            new Livre("Le Seigneur des anneaux", "Tolkien", "zeg", "2000", 1, 1),
+            new Livre("Le Silence des agneaux", "Hannibal", "reth", "1980", 1, 2),
+            new Livre("Retour vers le futur", "Marty", "poj", "2000", 1, 3)
+    );
+
+
+    public void initialize (URL url, ResourceBundle rb){
+        titre.setCellValueFactory(new PropertyValueFactory<Livre,String>("titre"));
+        auteur.setCellValueFactory(new PropertyValueFactory<Livre,String>("auteur"));
+        presentation.setCellValueFactory(new PropertyValueFactory<Livre,String>("presentation"));
+        parution.setCellValueFactory(new PropertyValueFactory<Livre,String>("parution"));
+        colonne.setCellValueFactory(new PropertyValueFactory<Livre,Integer>("colonne"));
+        rangee.setCellValueFactory(new PropertyValueFactory<Livre,Integer>("rangee"));
+
+        TableView.setItems(list);
+
+    }
 
 
 }

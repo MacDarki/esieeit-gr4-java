@@ -1,11 +1,11 @@
 package com.esiee.bibliotheque.controller;
 
 
-public class Tableau_old {
+public class Livre {
     String titre, auteur, presentation, parution;
     int colonne, rangee;
 
-    public Tableau_old(String titre, String auteur, String presentation, String parution, int colonne, int rangee) {
+    public Livre(String titre, String auteur, String presentation, String parution, int colonne, int rangee) {
         this.titre = titre;
         this.auteur = auteur;
         this.presentation = presentation;
