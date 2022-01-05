@@ -27,7 +27,7 @@ public class Controller implements Initializable {
     @FXML private TextField TitreField;
     @FXML private Button btnEdit;
     @FXML private Button btnValider;
-
+    @FXML private Button btnSuppr;
 
     @FXML
     void aboutinfos(ActionEvent event) throws IOException {
@@ -88,6 +88,7 @@ public class Controller implements Initializable {
 
 
     public void initialize (URL url, ResourceBundle rb){
+        // Initialiser les colonnes
         titre.setCellValueFactory(new PropertyValueFactory<Livre,String>("titre"));
         auteur.setCellValueFactory(new PropertyValueFactory<Livre,String>("auteur"));
         presentation.setCellValueFactory(new PropertyValueFactory<Livre,String>("presentation"));
@@ -97,6 +98,43 @@ public class Controller implements Initializable {
 
         TableView.setItems(list);
 
+        // Clear person details.
+        //showLivreDetails(null);
+
+        // Listener
+        TableView.getSelectionModel().selectedItemProperty().addListener(
+                ((observable, oldValue,newValue) -> showLivreDetails(newValue))
+        );
+
+    }
+
+
+    private void showLivreDetails(Livre livre){
+        if (livre != null) {
+            // Fill the labels with info from the person object.
+            titre.setText(livre.getTitre());
+            auteur.setText(livre.getAuteur());
+            presentation.setText(livre.getPresentation());
+            parution.setText(livre.getParution());
+            colonne.setText(String.valueOf(livre.getColonne()));
+            rangee.setText(String.valueOf(livre.getRangee()));
+        }
+        else {
+            // Livre is null, remove all the text.
+            titre.setText("");
+            auteur.setText("");
+            presentation.setText("");
+            parution.setText("");
+            colonne.setText("");
+            rangee.setText("");
+        }
+    }
+
+    // Bouton Suppression
+    @FXML
+    void handleDeleteLivre(ActionEvent event) {
+        int selectedIndex = TableView.getSelectionModel().getSelectedIndex();
+        TableView.getItems().remove(selectedIndex);
     }
 
 }
