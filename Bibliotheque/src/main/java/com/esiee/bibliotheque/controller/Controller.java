@@ -8,9 +8,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.TextField;
+
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Marshaller;
+import jakarta.xml.bind.Unmarshaller;
 
 public class Controller implements Initializable {
     @FXML private TextField TitreField;
@@ -74,7 +84,8 @@ public class Controller implements Initializable {
     @FXML private MenuItem MenuEditionSauvegarderSous;
     @FXML private MenuItem MenuFichierOuvrir;
     @FXML private javafx.scene.control.MenuItem closeButton;
-
+	private JAXBContext context;
+	private JAXBContext jaxbContext;
 
     @FXML
     void aboutinfos(ActionEvent event) throws IOException {
@@ -86,20 +97,49 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    void editionsauvegarder(ActionEvent event) {
-
-    }
+    void editionsauvegarder(ActionEvent event) throws JAXBException {
+    	initJAXB();
+    	
+    	Marshaller marshaller = ((JAXBContext) this.context).createMarshaller();
+    	marshaller.marshal(new Livre(null, null, null, null, 0, 0), new File("livres.xml"));
+    	}
 
     @FXML
     void editionsauvegardersous(ActionEvent event) {
-
     }
 
     @FXML
-    void fichierouvrir(ActionEvent event) throws IOException {
-        Process p = new ProcessBuilder("Explorer.exe", "/select,C:\\directory\\selectedFile").start();
+    void fichierouvrir(ActionEvent event) throws IOException, JAXBException {
+		JFileChooser chooser = new JFileChooser();
+    	FileNameExtensionFilter xmlfilter = new FileNameExtensionFilter(
+    	     "xml files (*.xml)", "xml");
+
+    	chooser.setDialogTitle("Open schedule file");
+    	// set selected filter
+    	chooser.setFileFilter(xmlfilter);
+    	int value = chooser.showOpenDialog(null);
+    	
+    	if(value == JFileChooser.APPROVE_OPTION) {
+    		File target = chooser.getSelectedFile();
+    	    try
+    	    {
+    	      jaxbContext = JAXBContext.newInstance(Livre.class);
+    	      Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+    	       
+    	      Livre livre = (Livre) jaxbUnmarshaller.unmarshal(target);
+    	       
+    	      System.out.println(livre);
+    	    }
+    	    catch (JAXBException e) 
+    	    {
+    	      e.printStackTrace();
+    	    }
+    	}
     }
 
+    public void initJAXB() throws JAXBException {
+		this.context = JAXBContext.newInstance(Livre.class);
+    }
 
 
     ////////////// tableau ///////////////////
@@ -186,6 +226,22 @@ public class Controller implements Initializable {
             alert.showAndWait();
         }
     }
-
+    
+    @FXML
+    void handleModifLivre(ActionEvent event) {
+        Livre selectedLivre = TableView.getSelectionModel().getSelectedItem();
+        int selectedIndex = TableView.getSelectionModel().getSelectedIndex();
+        if (selectedLivre != null) {
+            TableView.getItems().remove(selectedIndex);
+            TitreField.setText(selectedLivre.titre);
+            AuteurField.setText(selectedLivre.auteur);
+            PresentationField.setText(selectedLivre.presentation);
+            ParutionField.setText(selectedLivre.parution);
+            int colonne = selectedLivre.colonne;
+            ColonneField.setText(String.valueOf(colonne));
+            int rangee = selectedLivre.rangee;
+            RangeeField.setText(String.valueOf(rangee));
+        }
+    }
 
 }

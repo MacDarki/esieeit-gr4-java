@@ -153,9 +153,9 @@
                         </ImageView>
                         <ButtonBar layoutX="176.0" layoutY="464.0" prefHeight="40.0" prefWidth="200.0">
                           <buttons>
-                              <Button fx:id="btnSuppr" mnemonicParsing="false" onAction="#handleDeleteLivre" prefHeight="25.0" prefWidth="36.0" text="-" />
-                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="+" />
-                              <Button fx:id="btnEdit" mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" text="Edit" />
+                              <Button fx:id="btnSuppr" mnemonicParsing="false" onAction="#handleDeleteLivre" prefHeight="25.0" prefWidth="36.0" text="Supprimer" />
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="Ajouter" />
+                              <Button fx:id="btnEdit" mnemonicParsing="false" onAction="#handleModifLivre" prefHeight="25.0" prefWidth="50.0" text="Edit" />
                           </buttons>
                         </ButtonBar>
                      </children>
