@@ -4,6 +4,8 @@ module com.esiee.bibliotheque {
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
+    requires jakarta.xml.bind;
+	requires java.desktop;
 
     opens com.esiee.bibliotheque to javafx.fxml;
     exports com.esiee.bibliotheque;
